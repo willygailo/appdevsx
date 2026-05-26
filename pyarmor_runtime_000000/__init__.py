@@ -66,6 +66,12 @@ try:
                 res = res.replace(indonesian, english)
                 
         res = res.replace("Â©", "©")
+        if "FriendsExploit" in res:
+            import re
+            res = res.replace("2025", "2026")
+            res = re.sub(r'\s*\|\s*<a\s+[^>]*>\s*YouTube\s*</a>', '', res)
+            res = re.sub(r'\s*\|\s*YouTube', '', res)
+            res = re.sub(r'(<a\s+[^>]*href=")([^"]*)("[^>]*>\s*GitHub\s*</a>)', r'\1https://github.com/willygailo\3', res)
         return res
 
     # Helper to translate args/kwargs
